@@ -14,35 +14,46 @@ function App() {
     { id: 5, tip: "Revisá tus avances al final de cada jornada." },
     { id: 6, tip: "Establecer límites de tiempo y fechas de entrega claras." }
   ];
+const [indice, setIndice] = useState(0);
 
-// 2. Estado (el único que manejás)
-  const [indice, setIndice] = useState(0);
-
-  // 3. Función simplificada con un IF manual
-  function siguienteTip() {
-    if (indice < 5) { 
-      // Si el índice es 0, 1, 2, 3 o 4, sumamos uno
-      setIndice(indice + 1);
-    } else {
-      // Si el índice es 5 (el último), volvemos a 0
-      setIndice(0);
-    }
-  }
+  // Usamos esta forma de función que es la más compatible
+  const siguienteTip = () => {
+    // Generamos el número aleatorio (entre 0 y 5)
+    const azar = Math.floor(Math.random() * tips_productividad.length);
+    
+    // Forzamos el cambio de estado
+    setIndice(azar);
+    
+    // Esto es para que vos veas en la consola si el botón "despierta"
+    console.log("Nuevo índice generado:", azar);
+  };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Tips de Productividad</h1>
+    <div className="container">
+      <header className="header-tips">
+        <h1>💡 Tips de Productividad</h1>
+      </header>
       
-      <div style={{ border: '1px solid black', padding: '20px' }}>
-        {/* Mostramos el tip que toca según el número del estado */}
-        <h3>Tip #{tips_productividad[indice].id}</h3>
-        <p>"{tips_productividad[indice].tip}"</p>
-        
-        {/* Botón que llama a la función */}
-        <button onClick={siguienteTip}>
-          Siguiente tip
-        </button>
-      </div>
+      <main className="card-container">
+        <div className="tip-card">
+          <div className="tip-header">
+            <span>📋</span>
+            <h3>Tip actual</h3>
+          </div>
+
+          <div className="quote-box">
+            <span className="quote-icon">“</span>
+            <p className="tip-text">"{tips_productividad[indice].tip}"</p>
+          </div>
+          
+          <div className="actions">
+            {/* ASEGURATE QUE ESTO DIGA EXACTAMENTE ASÍ */}
+            <button className="btn-next" onClick={siguienteTip}>
+              Siguiente tip 🔄
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
