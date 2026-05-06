@@ -9,9 +9,9 @@
   align-items: center;
 }
 
-/* Título con fondo crema oscuro/azul (según la foto) */
+/* Título con fondo */
 .header-tips {
-  background-color: #e09eb8; /* Azul de la foto */
+  background-color: #ebd3dd;
   color: white;
   width: 100%;
   padding: 30px 0;
@@ -70,6 +70,41 @@
   font-weight: 500;
   color: #444;
   margin: 0;
+}
+
+/* Contador de votos dentro de la tarjeta */
+.votos-count {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #2e44a0;
+  background: rgba(46, 68, 160, 0.1);
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+/* Contenedor de botones para que queden uno al lado del otro */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Botón Votar (Verde con estrella) */
+.btn-vote {
+  background-color: #2cd253;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-vote:hover {
+  background-color: #218838;
 }
 
 /* Botón Siguiente Tip en Azul */
