@@ -17,7 +17,7 @@ function App() {
   // ESTADOS
   const [indice, setIndice] = useState(0);
   
-  // Estado para los votos: empezamos con todos en 0
+  // Estado para los votos: empizan con todos en 0
   const [votos, setVotos] = useState({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 });
 
   // FUNCIONES
@@ -28,19 +28,19 @@ function App() {
 
   const votarTip = () => {
     const idActual = tips_productividad[indice].id;
-    // Creamos una copia de los votos y le sumamos 1 al ID actual
+    // Crea una copia de los votos y le suma 1 al ID actual
     setVotos({
       ...votos,
       [idActual]: votos[idActual] + 1
     });
   };
 
-  // Lógica para encontrar el tip más votado [cite: 41]
+  // Lógica para encontrar el tip más votado
   const obtenerGanador = () => {
     let maxVotos = 0;
     let textoGanador = "";
 
-    // Recorremos los tips para ver cuál tiene más puntos
+    // Recorre los tips para ver cuál tiene más puntos
     tips_productividad.forEach((item) => {
       if (votos[item.id] > maxVotos) {
         maxVotos = votos[item.id];
@@ -69,12 +69,12 @@ function App() {
           <div className="quote-box">
             <span className="quote-icon">“</span>
             <p className="tip-text">"{tips_productividad[indice].tip}</p>
-            {/* Mostramos los votos actuales del tip */}
+            {/* Muestra los votos actuales del tip */}
             <p className="votos-count">⭐ Votos: {votos[tips_productividad[indice].id]}</p>
           </div>
           
           <div className="actions">
-            {/* Botón de Votar en Verde */}
+            {/* Botón Votar*/}
             <button className="btn-vote" onClick={votarTip}>
               Votar ⭐
             </button>
@@ -85,7 +85,7 @@ function App() {
             </button>
           </div>
         </div>
-        {/* BLOQUE MÁS VOTADO (con la copa 🏆) */}
+        {/* BLOQUE MÁS VOTADO */}
         <div className="card-ganador">
           <h2 className="titulo-ganador">🏆 Tip más votado</h2>
           
