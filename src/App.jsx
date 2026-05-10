@@ -35,6 +35,24 @@ function App() {
     });
   };
 
+  // Lógica para encontrar el tip más votado [cite: 41]
+  const obtenerGanador = () => {
+    let maxVotos = 0;
+    let textoGanador = "";
+
+    // Recorremos los tips para ver cuál tiene más puntos
+    tips_productividad.forEach((item) => {
+      if (votos[item.id] > maxVotos) {
+        maxVotos = votos[item.id];
+        textoGanador = item.tip;
+      }
+    });
+
+    return { textoGanador, maxVotos };
+  };
+
+  const { textoGanador, maxVotos } = obtenerGanador();
+
   return (
     <div className="container">
       <header className="header-tips">
@@ -66,6 +84,19 @@ function App() {
               Siguiente tip 🔄
             </button>
           </div>
+        </div>
+        {/* BLOQUE MÁS VOTADO (con la copa 🏆) */}
+        <div className="card-ganador">
+          <h2 className="titulo-ganador">🏆 Tip más votado</h2>
+          
+          {maxVotos > 0 ? (
+            <div className="info-ganador">
+              <p className="texto-ganador">"{textoGanador}"</p>
+              <p className="cantidad-ganador">Votos: {maxVotos}</p>
+            </div>
+          ) : (
+            <p className="sin-votos">Todavía no hay votos.</p>
+          )}
         </div>
       </main>
     </div>

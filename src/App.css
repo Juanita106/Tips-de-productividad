@@ -124,3 +124,45 @@
 .btn-next:hover {
   background-color: #1557b0;
 }
+
+/* Nuevo bloque Ganador */
+.card-ganador {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center; /* Título centrado */
+}
+
+.titulo-ganador {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.info-ganador {
+  background-color: #fffdf2; /* Crema clarito */
+  border: 1px solid #ffecb3;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.texto-ganador {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #444;
+}
+
+.cantidad-ganador {
+  text-align: left; /* Cantidad a la izquierda */
+  font-weight: bold;
+  color: #28a745;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.sin-votos {
+  color: #888;
+  font-style: italic;
+}
